@@ -1,0 +1,58 @@
+{
+  "endpoints": [
+    {
+      "modelRef": "Clj0CRAY",
+      "useJava": true,
+      "computePropensity": false,
+      "outputExplanations": false,
+      "individualExplanationParams": {
+        "method": "ICE",
+        "nbExplanations": 3,
+        "drawInScoredSet": false,
+        "subChunkSize": 5000,
+        "shapleyBackgroundSize": 100
+      },
+      "mlFlowOutputStyle": "PARSED",
+      "testQueries": [
+        {
+          "q": {
+            "features": {
+              "age_first_order": 20,
+              "pages_visited_avg": 4
+            }
+          }
+        },
+        {
+          "q": {
+            "features": {
+              "campaign": "False"
+            }
+          }
+        },
+        {
+          "q": {
+            "features": {
+              "campaign": "True"
+            }
+          }
+        }
+      ],
+      "enrichMapping": [],
+      "healthCheckQueries": [],
+      "returnPostEnrichData": false,
+      "auditPostEnrichData": false,
+      "id": "High_Revenue_Customers",
+      "type": "STD_PREDICTION"
+    }
+  ],
+  "authMethod": "PUBLIC",
+  "authRealm": {
+    "queryKeys": []
+  },
+  "deploymentMonitoring": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

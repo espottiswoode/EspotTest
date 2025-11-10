@@ -1,0 +1,204 @@
+{
+  "computedColumns": [],
+  "enableAutoCastInJoinConditions": false,
+  "engineParams": {
+    "hive": {
+      "addDkuUdf": false,
+      "executionEngine": "HIVECLI_LOCAL",
+      "hiveconf": [],
+      "inheritConf": "default",
+      "skipPrerunValidate": false
+    },
+    "impala": {
+      "forceStreamMode": true
+    },
+    "lowerCaseSchemaIfEngineRequiresIt": true,
+    "sparkSQL": {
+      "overwriteOutputSchema": false,
+      "pipelineAllowMerge": true,
+      "pipelineAllowStart": true,
+      "readParams": {
+        "map": {}
+      },
+      "sparkConfig": {
+        "conf": [],
+        "inheritConf": "default"
+      },
+      "useGlobalMetastore": false
+    }
+  },
+  "joins": [
+    {
+      "conditionsMode": "AND",
+      "on": [
+        {
+          "column1": {
+            "name": "customer_id",
+            "table": 0
+          },
+          "column2": {
+            "name": "customerID",
+            "table": 1
+          },
+          "maxDistance": 1,
+          "type": "EQ"
+        }
+      ],
+      "outerJoinOnTheLeft": true,
+      "rightLimit": {
+        "decisionColumn": {}
+      },
+      "table1": 0,
+      "table2": 1,
+      "type": "LEFT"
+    }
+  ],
+  "postFilter": {
+    "$status": {
+      "schema": {
+        "columns": [
+          {
+            "name": "order_date",
+            "type": "string"
+          },
+          {
+            "name": "pages_visited",
+            "type": "string"
+          },
+          {
+            "name": "order_id",
+            "type": "string"
+          },
+          {
+            "name": "customer_id",
+            "type": "string"
+          },
+          {
+            "name": "tshirt_category",
+            "type": "string"
+          },
+          {
+            "name": "tshirt_price",
+            "type": "string"
+          },
+          {
+            "name": "tshirt_quantity",
+            "type": "string"
+          },
+          {
+            "name": "gender",
+            "type": "string"
+          },
+          {
+            "name": "birthdate",
+            "type": "string"
+          },
+          {
+            "name": "user_agent",
+            "type": "string"
+          },
+          {
+            "name": "ip_address",
+            "type": "string"
+          },
+          {
+            "name": "campaign",
+            "type": "string"
+          },
+          {
+            "name": "dataset",
+            "type": "string"
+          }
+        ],
+        "userModified": false
+      }
+    }
+  },
+  "selectedColumns": [
+    {
+      "name": "order_date",
+      "table": 0,
+      "type": "string"
+    },
+    {
+      "name": "pages_visited",
+      "table": 0,
+      "type": "string"
+    },
+    {
+      "name": "order_id",
+      "table": 0,
+      "type": "string"
+    },
+    {
+      "name": "customer_id",
+      "table": 0,
+      "type": "string"
+    },
+    {
+      "name": "tshirt_category",
+      "table": 0,
+      "type": "string"
+    },
+    {
+      "name": "tshirt_price",
+      "table": 0,
+      "type": "string"
+    },
+    {
+      "name": "tshirt_quantity",
+      "table": 0,
+      "type": "string"
+    },
+    {
+      "name": "gender",
+      "table": 1,
+      "type": "string"
+    },
+    {
+      "name": "birthdate",
+      "table": 1,
+      "type": "string"
+    },
+    {
+      "name": "user_agent",
+      "table": 1,
+      "type": "string"
+    },
+    {
+      "name": "ip_address",
+      "table": 1,
+      "type": "string"
+    },
+    {
+      "name": "campaign",
+      "table": 1,
+      "type": "string"
+    },
+    {
+      "name": "dataset",
+      "table": 1,
+      "type": "string"
+    }
+  ],
+  "virtualInputs": [
+    {
+      "autoSelectColumns": false,
+      "index": 0,
+      "outputColumnsSelectionMode": "MANUAL",
+      "preFilter": {
+        "distinct": false,
+        "enabled": false
+      }
+    },
+    {
+      "autoSelectColumns": false,
+      "index": 1,
+      "outputColumnsSelectionMode": "MANUAL",
+      "preFilter": {
+        "distinct": false,
+        "enabled": false
+      }
+    }
+  ]
+}
