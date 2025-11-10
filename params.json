@@ -249,7 +249,8 @@
     },
     "dkuProperties": []
   },
-  "name": "Git for Projects",
+  "name": "Git for Projects for Administrator",
+  "projectStatus": "Sandbox",
   "imgPattern": 8,
   "showInitials": false,
   "metrics": {
