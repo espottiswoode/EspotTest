@@ -1,1 +1,14 @@
-import_test
+import dataiku
+import pandas as pd
+
+client = dataiku.api_client()
+users = client.list_users()
+
+# Convert the list of user dicts to a DataFrame
+df_users = pd.DataFrame(users)
+
+# Group and count
+counts = df_users['userProfile'].value_counts().reset_index()
+counts.columns = ['User Profile', 'Total Users']
+
+print(counts)
