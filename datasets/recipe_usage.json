@@ -60,8 +60,13 @@
     "numPartitions": -1
   },
   "schema": {
-    "columns": [],
-    "userModified": true
+    "columns": [
+      {"name":"recipe_name","type":"string","maxLength":16777216},
+      {"name":"recipe_type","type":"string","maxLength":16777216},
+      {"name":"user_login","type":"string","maxLength":16777216},
+      {"name":"assigned_bucket","type":"string","maxLength":16777216}
+    ],
+    "userModified": false
   },
   "typeSystemVersion": "V2",
   "dkuProperties": [],
