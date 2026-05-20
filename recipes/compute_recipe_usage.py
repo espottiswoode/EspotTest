@@ -1,35 +1,28 @@
 import dataiku
 import pandas as pd
 
-# Initialize
 client = dataiku.api_client()
 project = client.get_project(dataiku.default_project_key())
 
-# Define the mapping for buckets
-# Any type not in this list will default to 'Other / Visual Analyst'
-ROLE_MAP = {
-    'python': 'Data scientist group',
-    'sql_query': 'Data analyst group'
-}
+# Mapping for roles
+ROLE_MAP = {'python': 'Data scientist group', 'sql_query': 'Data analyst group'}
 
 data_summary = []
 
 for r in project.list_recipes():
-    # .get_info() returns basic metadata including the creator (owner)
-    recipe_handle = project.get_recipe(r['name'])
-    info = recipe_handle.get_info()
+    # get_definition() is the most universal way to get the 'creationTag'
+    definition = project.get_recipe(r['name']).get_definition()
     
-    # Extract details
-    rtype = r['type']
-    creator = info.get('owner', 'Unknown')
+    # Extract creator login from the standard creationTag location
+    creator = definition.get('creationTag', {}).get('lastModifiedBy', {}).get('login', 'Unknown')
     
     data_summary.append({
         "recipe_name": r['name'],
-        "recipe_type": rtype,
+        "recipe_type": r['type'],
         "user_login": creator,
-        "assigned_bucket": ROLE_MAP.get(rtype, 'Other / Visual Analyst')
+        "assigned_bucket": ROLE_MAP.get(r['type'], 'Other / Visual Analyst')
     })
 
-# Write output
+# Write out the results
 df = pd.DataFrame(data_summary)
 dataiku.Dataset("recipe_usage").write_with_schema(df)
